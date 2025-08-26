@@ -11,8 +11,15 @@ public class EmploymentEntity
 {
     [Key]
     public int Id { get; set; }
-    public int EmployeeId { get; set; }
-    public string EmploymentType { get; set; } = null!;
-    public DateTime StartDate { get; set; }
+
+
+    ////Koppling till Employee:
+    //public int EmployeeId { get; set; }
+    //public EmployeeBasicEntity Employee { get; set; } = null!;
+
+
+    public string? EmploymentType { get; set; } 
+    public DateTime? StartDate { get; set; }
     public DateTime? EndDate { get; set; }
+
 }

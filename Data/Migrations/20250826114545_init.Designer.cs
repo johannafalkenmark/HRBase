@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250826090356_Firstemployeetables")]
-    partial class Firstemployeetables
+    [Migration("20250826114545_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,23 +27,25 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Data.Entities.EmployeeBasicEntity", b =>
                 {
-                    b.Property<int>("EmployeeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EmploymentId")
+                        .HasColumnType("int");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeId");
+                    b.HasKey("Id");
 
-                    b.ToTable("EmployeesBasicInfo");
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Data.Entities.EmploymentEntity", b =>
@@ -54,22 +56,45 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<string>("EmploymentType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.HasKey("Id");
 
                     b.ToTable("Employments");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            EmploymentType = "Tillsvidare"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            EmploymentType = "Timanställd"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            EmploymentType = "Vikariat"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            EmploymentType = "Konsult"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            EmploymentType = "Avslutad"
+                        });
                 });
 #pragma warning restore 612, 618
         }
