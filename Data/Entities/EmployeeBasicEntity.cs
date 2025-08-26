@@ -16,7 +16,8 @@ public class EmployeeBasicEntity
     public string? LastName { get; set; }
 
     public int EmploymentId { get; set; }  // Främmande nyckel för att koppla till anställning
-    //public EmploymentEntity Employment { get; set; } = null!;  // Navigeringsegenskap för att komma åt anställningsdetaljer
+
+    public EmploymentEntity Employment { get; set; } = null!;  // Navigeringsegenskap för att komma åt anställningsdetaljer
     //public ICollection<EmploymentEntity> Employments { get; set; } = null!;  // En anställd kan ha flera anställningar. 1 till många relation.
 
 }
