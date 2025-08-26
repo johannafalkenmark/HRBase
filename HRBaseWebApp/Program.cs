@@ -17,7 +17,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 var serviceCollection = new ServiceCollection();
-serviceCollection.AddDbContext<DataContext>(options => options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Projekt\HRBase\Data\Databases\HRBaseDataBase.mdf;Integrated Security=True;Connect Timeout=30"));
+serviceCollection.AddDbContext<DataContext>(options => options.UseSqlServer(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Projekt\HRBase\Data\Databases\HRData.mdf;Integrated Security=True;Connect Timeout=30"));
 var serviceProvider = serviceCollection.BuildServiceProvider();
 
 app.UseHttpsRedirection();
