@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,10 @@ namespace Data.Contexts;
 
 public class DataContext : DbContext
 {
-    public DataContext(DbContextOptions options) : base(options)
-    {
-    }
 
-    protected DataContext()
+    public DataContext(DbContextOptions<DataContext> options) : base(options)
     {
     }
+    public virtual  DbSet<EmployeeBasicEntity> EmployeesBasicInfo { get; set; } = null!;
+    public virtual DbSet<EmploymentEntity> Employments { get; set; } = null!;
 }
