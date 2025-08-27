@@ -1,6 +1,8 @@
-﻿namespace Data.Interfaces;
+﻿using Data.Entities;
 
-public interface IEmploymentRepository
+namespace Data.Interfaces;
+
+public interface IEmploymentRepository : IBaseRepository<EmploymentEntity>
 {
    
 }
