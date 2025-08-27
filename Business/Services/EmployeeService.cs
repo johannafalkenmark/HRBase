@@ -36,7 +36,7 @@ public class EmployeeService(IEmployeeRepository employeeRepository, IEmployment
 
             var result = await _employeeRepository.CreateAsync(employeeBasicEntity);
 
-            if (!result) return new ResponseResult<Employee> { IsSuccess = false, Message = "Failed to create employee in database." };
+            if (!result) return new ResponseResult<Employee> { IsSuccess = false, Message = "Failed to create employee in database!" };
 
             var employee = EmployeeFactory.Create(employeeBasicEntity);
             return new ResponseResult<Employee> { IsSuccess = true, Data = employee, Message = "Employee created successfully." };

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Business.Services;
 
-public class EmploymentService(IEmploymentRepository employmentRepository) 
+public class EmploymentService(IEmploymentRepository employmentRepository) : IEmploymentService
 {
     private readonly IEmploymentRepository _employmentRepository = employmentRepository;
     // CREATE - Lägger till en ny anställning i databasen
